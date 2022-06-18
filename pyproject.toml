@@ -3,6 +3,9 @@ name = "gator-models"
 version = "0.1.0"
 description = "MongoDB models for Gator API"
 authors = ["Shon Verch <verchshon@gmail.com>"]
+packages = [
+    { include = "gator" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
