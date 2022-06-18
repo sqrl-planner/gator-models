@@ -6,6 +6,7 @@ authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+flask-mongoengine = "^1.0.0"
 
 [tool.poetry.dev-dependencies]
 
