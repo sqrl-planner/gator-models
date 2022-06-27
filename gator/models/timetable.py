@@ -9,9 +9,10 @@ from typing import Optional
 import mongoengine as db
 
 from gator.models.common import Time
+from gator.models.base_types import SerializableEnum
 
 
-class MeetingDay(Enum):
+class MeetingDay(SerializableEnum):
     """A class representing the day of the week."""
 
     MONDAY = 'MO'
@@ -43,7 +44,7 @@ class SectionMeeting(db.EmbeddedDocument):
     assigned_room_2: Optional[str] = db.StringField(null=True)
 
 
-class SectionTeachingMethod(Enum):
+class SectionTeachingMethod(SerializableEnum):
     """A class representing the teaching method for a section."""
 
     LECTURE = 'LEC'
@@ -51,7 +52,7 @@ class SectionTeachingMethod(Enum):
     PRACTICAL = 'PRA'
 
 
-class SectionDeliveryMode(Enum):
+class SectionDeliveryMode(SerializableEnum):
     """A class representing mode of delivery for a section."""
 
     CLASS = 'CLASS'
@@ -127,7 +128,7 @@ class Section(db.EmbeddedDocument):
         return f'{self.teaching_method.value}-{self.section_number}'
 
 
-class CourseTerm(Enum):
+class CourseTerm(SerializableEnum):
     """The course term."""
 
     FIRST_SEMESTER = 'F'
@@ -135,7 +136,7 @@ class CourseTerm(Enum):
     FULL_YEAR = 'Y'
 
 
-class Campus(Enum):
+class Campus(SerializableEnum):
     """University campus."""
 
     ST_GEORGE = 'UTSG'
