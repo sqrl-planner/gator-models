@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gator-models"
-version = "0.1.1"
+version = "0.0.0"  # placeholder for the real version, which is retrieved from git tags
 description = "MongoDB models for Gator API"
 authors = ["Shon Verch <verchshon@gmail.com>"]
 packages = [
