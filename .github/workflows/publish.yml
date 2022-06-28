@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - shell: bash
-      env:
-        PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
     - uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -24,7 +21,7 @@ jobs:
         pip install poetry
     - name: Build and publish
       run: |
-        poetry config http-basic.pypi "__token__" "$PYPI_TOKEN"
+        poetry config http-basic.pypi "__token__" "${{ secrets.PYPI_TOKEN }}"
         poetry version $(git describe --tags --abbrev=0)
         poetry build
         poetry publish
