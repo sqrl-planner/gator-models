@@ -17,8 +17,8 @@ class SectionMeetingSchema(Schema):
     day = EnumField(MeetingDay, required=True)
     start_time = fields.Nested(TimeSchema, required=True)
     end_time = fields.Nested(TimeSchema, required=True)
-    assigned_room_1 = fields.String(missing=True)
-    assigned_room_2 = fields.String(missing=True)
+    assigned_room_1 = fields.String(load_default=None)
+    assigned_room_2 = fields.String(load_default=None)
 
     @post_load
     def make_section_meeting(self, data: dict, **_: Any) -> SectionMeeting:
@@ -41,18 +41,18 @@ class InstructorSchema(Schema):
 class SectionSchema(Schema):
     """Marshmallow schema for Section model."""
 
-    teaching_method = EnumField(SectionTeachingMethod, missing=True)
+    teaching_method = EnumField(SectionTeachingMethod, load_default=None)
     section_number = fields.String(required=True)
-    subtitle = fields.String(missing=True)
+    subtitle = fields.String(load_default=None)
     instructors = fields.Nested(InstructorSchema, many=True)
     meetings = fields.Nested(SectionMeetingSchema, many=True)
-    delivery_method = EnumField(SectionDeliveryMode, missing=True)
+    delivery_method = EnumField(SectionDeliveryMode, load_default=None)
     cancelled = fields.Boolean()
     has_waitlist = fields.Boolean()
-    enrolment_capacity = fields.Integer(missing=True)
-    actual_enrolment = fields.Integer(missing=True)
-    actual_waitlist = fields.Integer(missing=True)
-    enrolment_indicator = fields.String(missing=True)
+    enrolment_capacity = fields.Integer(load_default=None)
+    actual_enrolment = fields.Integer(load_default=None)
+    actual_waitlist = fields.Integer(load_default=None)
+    enrolment_indicator = fields.String(load_default=None)
 
     @post_load
     def make_section(self, data: dict, **_: Any) -> Section:
