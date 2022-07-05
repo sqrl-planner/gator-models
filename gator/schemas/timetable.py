@@ -13,6 +13,7 @@ from gator.schemas.common import TimeSchema
 
 class SectionMeetingSchema(Schema):
     """Marshmallow schema for SectionMeeting model."""
+
     day = EnumField(MeetingDay, required=True)
     start_time = fields.Nested(TimeSchema, required=True)
     end_time = fields.Nested(TimeSchema, required=True)
@@ -27,6 +28,7 @@ class SectionMeetingSchema(Schema):
 
 class InstructorSchema(Schema):
     """Marshmallow schema for Instructor model."""
+
     first_name = fields.String(required=True)
     last_name = fields.String(required=True)
 
@@ -38,6 +40,7 @@ class InstructorSchema(Schema):
 
 class SectionSchema(Schema):
     """Marshmallow schema for Section model."""
+
     teaching_method = EnumField(SectionTeachingMethod, missing=True)
     section_number = fields.String(required=True)
     subtitle = fields.String(missing=True)
@@ -59,6 +62,7 @@ class SectionSchema(Schema):
 
 class OrganisationSchema(Schema):
     """Marshmallow schema for Organisation model."""
+
     code = fields.String(required=True)
     name = fields.String(required=True)
     campus = EnumField(Campus, required=True)
@@ -71,6 +75,7 @@ class OrganisationSchema(Schema):
 
 class CourseSchema(Schema):
     """Marshmallow schema for Course model."""
+
     id = fields.String(required=True)
     organisation = fields.Nested(OrganisationSchema)
     code = fields.String()

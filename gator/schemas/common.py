@@ -8,6 +8,7 @@ from gator.models.common import Time
 
 class TimeSchema(Schema):
     """Marshmallow schema for the Time model."""
+
     hour = fields.Integer(required=True)
     minute = fields.Integer(required=True)
 
