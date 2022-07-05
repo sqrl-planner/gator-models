@@ -11,6 +11,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 mongoengine = ">=0.20"
+marshmallow = "^3.17.0"
+marshmallow-enum = "^1.5.1"
 
 [tool.poetry.dev-dependencies]
 pydocstyle = "^6.1.1"
