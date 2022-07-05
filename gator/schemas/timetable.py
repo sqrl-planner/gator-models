@@ -46,7 +46,7 @@ class SectionSchema(Schema):
     subtitle = fields.String(load_default=None)
     instructors = fields.Nested(InstructorSchema, many=True)
     meetings = fields.Nested(SectionMeetingSchema, many=True)
-    delivery_method = EnumField(SectionDeliveryMode, load_default=None)
+    delivery_mode = EnumField(SectionDeliveryMode, load_default=None)
     cancelled = fields.Boolean()
     has_waitlist = fields.Boolean()
     enrolment_capacity = fields.Integer(load_default=None)
