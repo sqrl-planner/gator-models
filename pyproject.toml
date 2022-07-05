@@ -10,7 +10,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-flask-mongoengine = "^1.0.0"
+mongoengine = ">=0.20"
 
 [tool.poetry.dev-dependencies]
 pydocstyle = "^6.1.1"
